@@ -13,8 +13,15 @@ const ChapterReader: React.FC = () => {
     'prologue': true,
     'phase-1': true
   });
-  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
+  const [isBooting, setIsBooting] = useState<boolean>(true);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    // End booting animation after a short delay
+    const timer = setTimeout(() => setIsBooting(false), 1000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const togglePhase = (id: string) => {
     setOpenPhases(prev => ({ ...prev, [id]: !prev[id] }));
@@ -64,7 +71,7 @@ const ChapterReader: React.FC = () => {
       </nav>
 
       <div className={`reader-container ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
-        <aside className={`reader-sidebar ui-text ${sidebarOpen ? 'open' : ''}`}>
+        <aside className={`reader-sidebar ui-text ${sidebarOpen ? 'open' : ''} ${isBooting ? 'booting' : ''}`}>
           <div className="sidebar-section">
             <h4 onClick={() => togglePhase('prologue')} className={`phase-toggle ${phaseId === 'prologue' ? 'active-phase' : ''}`}>
               {openPhases['prologue'] ? '▼' : '▶'} PROLOGUE
