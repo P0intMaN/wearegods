@@ -1,7 +1,6 @@
 <div class="chapter-opening">
-  <p class="ui-text purple">PART I</p>
-  <h1>THE AUDACITY EQUATION</h1>
-  <h2 class="tech-header">Chapter 1: "A Million Years, They Said"</h2>
+  <p class="ui-text purple phase-label">PHASE I: THE AUDACITY EQUATION</p>
+  <h1>Chapter 1: "A Million Years, They Said"</h1>
 </div>
 
 <div class="newspaper-quote">

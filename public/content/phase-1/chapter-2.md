@@ -1,7 +1,6 @@
 <div class="chapter-opening">
-  <p class="ui-text purple">PART I: THE AUDACITY EQUATION</p>
-  <h1>WHAT PRAYER CANNOT DEFLECT</h1>
-  <h2 class="tech-header">Chapter 2: The Logic of Survival</h2>
+  <p class="ui-text purple phase-label">PHASE I: THE AUDACITY EQUATION</p>
+  <h1>Chapter 2: "What Prayer Cannot Deflect"</h1>
 </div>
 
 <div class="mission-header">

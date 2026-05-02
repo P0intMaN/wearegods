@@ -441,3 +441,5 @@
   .impact-text { font-size: 1.5rem; }
   .gut-punch { font-size: 2rem; }
 }
+
+.chapter-opening { text-align: left; margin-bottom: 5rem; border-bottom: 1px solid rgba(0, 243, 255, 0.1); padding-bottom: 3rem; } .phase-label { font-size: 0.85rem !important; letter-spacing: 4px; margin-bottom: 0.5rem; opacity: 0.7; } .chapter-opening h1 { margin-top: 0; text-align: left; }
