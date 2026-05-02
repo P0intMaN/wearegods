@@ -443,3 +443,7 @@
 }
 
 .chapter-opening { text-align: left; margin-bottom: 5rem; border-bottom: 1px solid rgba(0, 243, 255, 0.1); padding-bottom: 3rem; } .phase-label { font-size: 0.85rem !important; letter-spacing: 4px; margin-bottom: 0.5rem; opacity: 0.7; } .chapter-opening h1 { margin-top: 0; text-align: left; }
+
+.mission-header { display: flex; gap: 4rem; margin: 2rem 0 4rem 0; padding: 1rem 0; border-top: 1px solid rgba(0, 243, 255, 0.1); border-bottom: 1px solid rgba(0, 243, 255, 0.1); } .mission-info { display: flex; flex-direction: column; gap: 0.2rem; } .mission-info .label { font-family: var(--font-mono); font-size: 0.65rem; color: var(--accent-purple); letter-spacing: 2px; } .mission-info .value { font-family: var(--font-mono); font-size: 0.9rem; color: var(--accent-cyan); font-weight: bold; text-transform: uppercase; } 
+
+/* Readability Improvements */ .phase-label { font-size: 1.1rem !important; opacity: 0.9; } .mission-info .label { font-size: 0.9rem !important; opacity: 1; } .mission-info .value { font-size: 1.3rem !important; } .newspaper-quote .source { font-size: 1.2rem !important; } .newspaper-quote .date { font-size: 1rem !important; } .sidebar-section h4 { font-size: 0.9rem !important; } .sidebar-section li { font-size: 1rem !important; }
