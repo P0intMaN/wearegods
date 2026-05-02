@@ -21,8 +21,11 @@ const ChapterReader: React.FC = () => {
 
   useEffect(() => {
     setLoading(true);
-    // Fetch from the root of the public folder
-    fetch(`./content/${phaseId}/${chapterId}.md`)
+    const baseUrl = import.meta.env.BASE_URL;
+    // Ensure we have a trailing slash or handle the path joining correctly
+    const fetchPath = `${baseUrl}content/${phaseId}/${chapterId}.md`.replace(/\/\/+/g, '/');
+    
+    fetch(fetchPath)
       .then(res => {
         if (!res.ok) throw new Error("Dataset not found");
         return res.text();
