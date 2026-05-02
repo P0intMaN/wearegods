@@ -81,7 +81,12 @@ const ChapterReader: React.FC = () => {
                 >
                   1. A Million Years, They Said
                 </li>
-                <li className="locked">2. Orbital Mechanics</li>
+                <li 
+                  className={chapterId === 'chapter-2' ? 'active' : ''} 
+                  onClick={() => navigate('/phase-1/chapter-2')}
+                >
+                  2. What Prayer Cannot Deflect
+                </li>
               </ul>
             )}
           </div>
@@ -104,10 +109,25 @@ const ChapterReader: React.FC = () => {
           </ReactMarkdown>
           
           <div className="chapter-navigation ui-text">
-            {phaseId === 'phase-1' && (
-              <button className="nav-btn prev" onClick={() => navigate('/prologue/prologue')}>
-                <ChevronLeft size={20} /> PREVIOUS DATASET
-              </button>
+            {phaseId === 'phase-1' && chapterId === 'chapter-1' && (
+              <>
+                <button className="nav-btn prev" onClick={() => navigate('/prologue/prologue')}>
+                  <ChevronLeft size={20} /> PREVIOUS DATASET
+                </button>
+                <button className="nav-btn next" onClick={() => navigate('/phase-1/chapter-2')}>
+                  NEXT DATASET <ChevronRight size={20} />
+                </button>
+              </>
+            )}
+            {phaseId === 'phase-1' && chapterId === 'chapter-2' && (
+              <>
+                <button className="nav-btn prev" onClick={() => navigate('/phase-1/chapter-1')}>
+                  <ChevronLeft size={20} /> PREVIOUS DATASET
+                </button>
+                <button className="nav-btn next locked">
+                  END OF PHASE I <ChevronRight size={20} />
+                </button>
+              </>
             )}
             {phaseId === 'prologue' && (
               <button className="nav-btn next" onClick={() => navigate('/phase-1/chapter-1')}>
