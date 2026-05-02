@@ -21,8 +21,12 @@ const ChapterReader: React.FC = () => {
 
   useEffect(() => {
     setLoading(true);
-    fetch(`/src/content/${phaseId}/${chapterId}.md`)
-      .then(res => res.text())
+    // Fetch from the root of the public folder
+    fetch(`./content/${phaseId}/${chapterId}.md`)
+      .then(res => {
+        if (!res.ok) throw new Error("Dataset not found");
+        return res.text();
+      })
       .then(text => {
         setContent(text);
         setLoading(false);
