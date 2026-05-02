@@ -50,14 +50,73 @@
 }
 
 .reader-sidebar {
-  width: 250px;
+  width: 350px;
   padding: 2rem;
   border-right: 1px solid rgba(0, 243, 255, 0.1);
-  display: none; /* Hidden on mobile */
+  background: rgba(5, 5, 10, 0.95);
+  backdrop-filter: blur(20px);
+  position: fixed;
+  left: -350px;
+  top: 60px;
+  bottom: 0;
+  z-index: 1000;
+  transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.reader-sidebar.open {
+  transform: translateX(350px);
+  box-shadow: 20px 0 50px rgba(0, 0, 0, 0.5);
+}
+
+/* Adjust main content when sidebar is open or closed */
+.markdown-body {
+  flex: 1;
+  max-width: 850px;
+  margin: 0 auto;
+  padding: 6rem 3rem;
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: 1.15rem;
+  line-height: 1.9;
+  letter-spacing: 0.015em;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar-open .markdown-body {
+  opacity: 0.3;
+  pointer-events: none;
 }
 
 @media (min-width: 1024px) {
-  .reader-sidebar { display: block; }
+  .reader-sidebar {
+    position: sticky;
+    top: 60px;
+    left: 0;
+    height: calc(100vh - 60px);
+    background: transparent;
+    backdrop-filter: none;
+    transition: all 0.4s ease;
+  }
+
+  .sidebar-closed .reader-sidebar {
+    width: 0;
+    padding: 0;
+    opacity: 0;
+    pointer-events: none;
+    transform: translateX(-100%);
+  }
+
+  .sidebar-open .reader-sidebar {
+    width: 350px;
+    padding: 2rem;
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .sidebar-open .markdown-body {
+    opacity: 1;
+    pointer-events: all;
+  }
 }
 
 .phase-toggle {

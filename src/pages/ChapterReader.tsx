@@ -13,16 +13,25 @@ const ChapterReader: React.FC = () => {
     'prologue': true,
     'phase-1': true
   });
+  const [sidebarOpen, setSidebarOpen] = useState<boolean>(false);
   const navigate = useNavigate();
 
   const togglePhase = (id: string) => {
     setOpenPhases(prev => ({ ...prev, [id]: !prev[id] }));
   };
 
+  const toggleSidebar = () => setSidebarOpen(!sidebarOpen);
+
+  const handleChapterClick = (path: string) => {
+    navigate(path);
+    if (window.innerWidth < 1024) {
+      setSidebarOpen(false);
+    }
+  };
+
   useEffect(() => {
     setLoading(true);
     const baseUrl = import.meta.env.BASE_URL;
-    // Ensure we have a trailing slash or handle the path joining correctly
     const fetchPath = `${baseUrl}content/${phaseId}/${chapterId}.md`.replace(/\/\/+/g, '/');
     
     fetch(fetchPath)
@@ -49,11 +58,13 @@ const ChapterReader: React.FC = () => {
         <div className="nav-center">
           <span className="current-location">{phaseId?.replace('-', ' ')} / {chapterId?.replace('-', ' ')}</span>
         </div>
-        <button className="nav-item menu-toggle"><Menu size={18} /> <span>INDEX</span></button>
+        <button className="nav-item menu-toggle" onClick={toggleSidebar}>
+          <Menu size={18} /> <span>INDEX</span>
+        </button>
       </nav>
 
-      <div className="reader-container">
-        <aside className="reader-sidebar ui-text">
+      <div className={`reader-container ${sidebarOpen ? 'sidebar-open' : 'sidebar-closed'}`}>
+        <aside className={`reader-sidebar ui-text ${sidebarOpen ? 'open' : ''}`}>
           <div className="sidebar-section">
             <h4 onClick={() => togglePhase('prologue')} className={`phase-toggle ${phaseId === 'prologue' ? 'active-phase' : ''}`}>
               {openPhases['prologue'] ? '▼' : '▶'} PROLOGUE
@@ -62,7 +73,7 @@ const ChapterReader: React.FC = () => {
               <ul>
                 <li 
                   className={chapterId === 'prologue' ? 'active' : ''} 
-                  onClick={() => navigate('/prologue/prologue')}
+                  onClick={() => handleChapterClick('/prologue/prologue')}
                 >
                   Indifference
                 </li>
@@ -77,13 +88,13 @@ const ChapterReader: React.FC = () => {
               <ul>
                 <li 
                   className={chapterId === 'chapter-1' ? 'active' : ''} 
-                  onClick={() => navigate('/phase-1/chapter-1')}
+                  onClick={() => handleChapterClick('/phase-1/chapter-1')}
                 >
                   1. A Million Years, They Said
                 </li>
                 <li 
                   className={chapterId === 'chapter-2' ? 'active' : ''} 
-                  onClick={() => navigate('/phase-1/chapter-2')}
+                  onClick={() => handleChapterClick('/phase-1/chapter-2')}
                 >
                   2. What Prayer Cannot Deflect
                 </li>
