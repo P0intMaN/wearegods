@@ -496,9 +496,72 @@
 }
 
 @media (max-width: 768px) {
-  .part-grid { grid-template-columns: 1fr; }
-  .impact-text { font-size: 1.5rem; }
-  .gut-punch { font-size: 2rem; }
+  .reader-nav {
+    padding: 0 1rem;
+  }
+
+  .nav-center {
+    display: none; /* Hide path on very small screens */
+  }
+
+  .reader-sidebar {
+    width: 85vw;
+    left: -85vw;
+  }
+
+  .reader-sidebar.open {
+    transform: translateX(85vw);
+  }
+
+  .markdown-body {
+    padding: 3rem 1.5rem;
+    font-size: 1rem;
+    line-height: 1.7;
+  }
+
+  .glitch-header {
+    font-size: 2.2rem;
+    letter-spacing: 2px;
+  }
+
+  .impact-text {
+    font-size: 1.4rem;
+    margin: 2.5rem 0;
+  }
+
+  .mission-header {
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: flex-start;
+    padding: 1.5rem;
+  }
+
+  .mission-info .value {
+    font-size: 1.1rem !important;
+  }
+
+  .part-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .manifesto-box {
+    font-size: 1.4rem;
+    padding: 1.5rem;
+  }
+
+  .chapter-navigation {
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .nav-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .final-word .highlight {
+    font-size: 2rem;
+  }
 }
 
 .chapter-opening { text-align: left; margin-bottom: 5rem; border-bottom: 1px solid rgba(0, 243, 255, 0.1); padding-bottom: 3rem; } .phase-label { font-size: 0.85rem !important; letter-spacing: 4px; margin-bottom: 0.5rem; opacity: 0.7; } .chapter-opening h1 { margin-top: 0; text-align: left; }
