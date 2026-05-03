@@ -570,4 +570,121 @@
 
 /* Readability Improvements */ .phase-label { font-size: 1.1rem !important; opacity: 0.9; } .mission-info .label { font-size: 0.9rem !important; opacity: 1; } .mission-info .value { font-size: 1.3rem !important; } .newspaper-quote .source { font-size: 1.2rem !important; } .newspaper-quote .date { font-size: 1rem !important; } .sidebar-section h4 { font-size: 0.9rem !important; } .sidebar-section li { font-size: 1rem !important; }
 
-/* System Booting Animation */ .booting { animation: pixelFade 0.8s steps(20) forwards, glitch-anim 0.3s infinite linear; opacity: 0; } @keyframes pixelFade { from { opacity: 0; clip-path: inset(50% 50% 50% 50%); filter: brightness(2) contrast(2); } to { opacity: 1; clip-path: inset(0% 0% 0% 0%); filter: brightness(1) contrast(1); } }
+/* Intel Link & Tooltip */
+.intel-link {
+  position: relative;
+  display: inline-block;
+  color: var(--accent-cyan);
+  border-bottom: 2px dotted var(--accent-cyan);
+  cursor: help;
+  transition: all 0.3s ease;
+}
+
+.intel-link:hover {
+  text-shadow: var(--glow-cyan);
+  border-bottom-style: solid;
+}
+
+.intel-tooltip {
+  visibility: hidden;
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  transform: translateX(-50%) translateY(20px);
+  width: 320px;
+  background: var(--bg-void);
+  border: 1px solid var(--accent-cyan);
+  box-shadow: 0 0 20px rgba(0, 243, 255, 0.2);
+  z-index: 1000;
+  padding: 5px;
+  opacity: 0;
+  clip-path: inset(100% 0 0 0);
+  pointer-events: none;
+  transition: 
+    visibility 0.5s,
+    opacity 0.3s ease,
+    transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.intel-tooltip .intel-desc {
+  padding: 12px;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  line-height: 1.4;
+  color: var(--text-secondary);
+  border-bottom: 1px solid rgba(0, 243, 255, 0.1);
+}
+
+.intel-tooltip .intel-desc strong {
+  color: var(--accent-cyan);
+  display: block;
+  margin-bottom: 4px;
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.intel-link:hover .intel-tooltip {
+  visibility: visible;
+  opacity: 1;
+  transform: translateX(-50%) translateY(0);
+  clip-path: inset(0% 0 0 0);
+  /* Reset transition-delay so it appears instantly on hover */
+  transition: 
+    visibility 0s,
+    opacity 0.3s ease,
+    transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    clip-path 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.intel-tooltip::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent-cyan);
+  box-shadow: 0 0 10px var(--accent-cyan);
+  z-index: 1001;
+  transform: translateY(300px);
+  opacity: 0;
+  transition: transform 0.5s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.3s ease;
+}
+
+.intel-link:hover .intel-tooltip::before {
+  transform: translateY(0);
+  opacity: 1;
+}
+
+.intel-tooltip img {
+  width: 100%;
+  display: block;
+  border: 1px solid rgba(0, 243, 255, 0.3);
+  filter: sepia(0.2) contrast(1.1);
+}
+
+.intel-tooltip .intel-label {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--accent-cyan);
+  padding: 8px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  background: rgba(0, 243, 255, 0.1);
+  margin-top: 5px;
+}
+
+.intel-tooltip::after {
+  content: '';
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--accent-cyan) transparent transparent transparent;
+}
+

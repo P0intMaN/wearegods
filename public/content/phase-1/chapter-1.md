@@ -18,7 +18,7 @@
   </div>
 </div>
 
-The *New York Times* is a serious newspaper. It employs serious people. Its editorial pages are read by the educated, the influential, the kind of men who shape the opinions of a nation. And on this morning, in response to the growing enthusiasm for powered human flight — enthusiasm the editors clearly find both charming and delusional — the paper publishes an editorial that will become the single most spectacular act of wrongness in the history of confident journalism.
+The *New York Times* is a serious newspaper. It employs serious people. Its editorial pages are read by the educated, the influential, the kind of men who shape the opinions of a nation. And on this morning, in response to the growing enthusiasm for powered human flight — enthusiasm the editors clearly find both charming and delusional — <span class="intel-link">the paper publishes an editorial<span class="intel-tooltip"><img src="images/man-wont-fly-times.jpg" alt="NYT Editorial 1903"></span></span> that will become the single most spectacular act of wrongness in the history of confident journalism.
 
 <div class="newspaper-quote">
   <span class="source">NEW YORK TIMES EDITORIAL</span>
@@ -30,7 +30,7 @@ The *New York Times* is a serious newspaper. It employs serious people. Its edit
 
 Let that settle in. The *New York Times*, in the autumn of 1903, looked at the available evidence — the failed attempts, the dead pioneers, the sheer audacity of the idea that a heavier-than-air machine could be made to fly through sustained powered flight under human control — and concluded that success was not around the corner, not in a generation, not in a century. It was a million years away. Perhaps ten million. **Geologic time.** The same timescale on which species evolve. The same timescale on which mountain ranges rise and erode.
 
-Sixty-five days later, at 10:35 in the morning on December 17, 1903, at Kill Devil Hills near the town of Kitty Hawk, North Carolina, Orville Wright climbed into the Flyer I — a biplane constructed largely from spruce wood and unbleached muslin — and became the first human being in history to achieve sustained, controlled, powered flight.
+Sixty-five days later, at 10:35 in the morning on ***December 17, 1903***, at Kill Devil Hills near the town of Kitty Hawk, North Carolina, Orville Wright climbed into the <span class="intel-link">Flyer I<span class="intel-tooltip"><img src="images/flyer1.jpg" alt="Wright Flyer I - First Flight"></span></span> — a biplane constructed largely from spruce wood and unbleached muslin — and became the first human being in history to achieve sustained, controlled, powered flight.
 
 <div class="scanner-line"></div>
 
@@ -89,7 +89,7 @@ But we are nowhere near done.
 
 **1944. The Baltic coast of Germany.**
 
-In a complex of laboratories and launch facilities shrouded in military secrecy, a team of engineers led by a 32-year-old German rocket scientist named Wernher von Braun fires the A-4 rocket — later renamed the V-2 by the Nazi regime that funded it. It is the first man-made object to reach space, crossing the Kármán line at 100 kilometres altitude.
+In a complex of laboratories and launch facilities shrouded in military secrecy, a team of engineers led by a 32-year-old German rocket scientist named Wernher von Braun fires the <span class="intel-link">**A-4 rocket**<span class="intel-tooltip"><span class="intel-desc"><strong>A4_AGGREGAT // 1944</strong>The world's first long-range guided ballistic missile. It reached 189km altitude, becoming the first human-made object to cross into outer space.</span><img src="images/v2_rocket.jpg" alt="V-2 Rocket"></span></span> — later renamed the V-2 by the Nazi regime that funded it. It is the first man-made object to reach space, crossing the Kármán line at 100 kilometres altitude.
 
 It is also a weapon, and it will kill thousands of civilians across London and Antwerp before the war ends.
 
@@ -107,9 +107,9 @@ The Moon. The planets. Space.
 
 What followed was the most concentrated burst of technological progress in human history.
 
-The transistor in **1947**. The first satellite — Sputnik — in **1957**. The first human in space — Yuri Gagarin — in April **1961**, a single orbit of the Earth lasting 108 minutes. Alan Shepard a month later, a fifteen-minute suborbital hop that prompted President Kennedy to stand before Congress and make a promise that was, by any rational measure, insane: that the United States would land a human being on the Moon and return them safely to Earth before the end of the decade.
+The transistor in **1947**. The first satellite — <span class="intel-link">**Sputnik**<span class="intel-tooltip"><span class="intel-desc"><strong>SOVIET_SPACE_PROG // 1957</strong>The first artificial Earth satellite. A 58cm polished metal sphere with four external radio antennas that triggered the Space Race.</span></span></span> — in **1957**. The first human in space — <span class="intel-link">**Yuri Gagarin**<span class="intel-tooltip"><span class="intel-desc"><strong>VOSTOK_1 // APRIL 12, 1961</strong>Soviet cosmonaut who completed one orbit of the Earth, becoming the first human to journey into outer space.</span></span></span> — in April **1961**, a single orbit of the Earth lasting 108 minutes. Alan Shepard a month later, a fifteen-minute suborbital hop that prompted President Kennedy to stand before Congress and make a promise that was, by any rational measure, insane: that the United States would land a human being on the Moon and return them safely to Earth before the end of the decade.
 
-The decade was nine years away. The United States had **seventeen minutes** of spaceflight experience. The rocket required for the mission did not yet exist. The guidance computers required did not yet exist. The spacesuits, the orbital mechanics, the rendezvous and docking procedures, the lunar module, the navigation systems, the re-entry heat shields — none of it existed.
+The decade was nine years away. The United States had **seventeen minutes** of spaceflight experience. The rocket required for the mission — <span class="intel-link">**Saturn V**<span class="intel-tooltip"><span class="intel-desc"><strong>APOLLO_LIFTER // 1967-1973</strong>The most powerful rocket ever successfully flown. Standing 111m tall, it remains the only launch vehicle to carry humans beyond low Earth orbit.</span></span></span> — did not yet exist. The guidance computers required did not yet exist. The spacesuits, the orbital mechanics, the rendezvous and docking procedures, the lunar module, the navigation systems, the re-entry heat shields — none of it existed.
 
 Kennedy was promising to build, from almost nothing, in less than a decade, the most complex machine ever constructed by human hands.
 
