@@ -58,6 +58,7 @@ a:hover {
 .glitch-text {
   position: relative;
   display: inline-block;
+  word-wrap: break-word;
 }
 
 .glitch-text::before,
@@ -69,6 +70,7 @@ a:hover {
   width: 100%;
   height: 100%;
   background: var(--bg-deep);
+  pointer-events: none;
 }
 
 @keyframes scanline {
@@ -85,14 +87,23 @@ body::after {
   height: 100%;
   background: linear-gradient(
     rgba(18, 16, 16, 0) 50%,
-    rgba(0, 0, 0, 0.25) 50%
+    rgba(0, 0, 0, 0.1) 50%
   ), linear-gradient(
     90deg,
-    rgba(255, 0, 0, 0.06),
-    rgba(0, 255, 0, 0.02),
-    rgba(0, 0, 255, 0.06)
+    rgba(255, 0, 0, 0.03),
+    rgba(0, 255, 0, 0.01),
+    rgba(0, 0, 255, 0.03)
   );
   z-index: 9999;
-  background-size: 100% 2px, 3px 100%;
+  background-size: 100% 4px, 3px 100%;
   pointer-events: none;
+  opacity: 0.6;
 }
+
+@media (max-width: 768px) {
+  body::after {
+    background-size: 100% 3px, 2px 100%;
+    opacity: 0.4;
+  }
+}
+
