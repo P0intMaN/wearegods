@@ -1,0 +1,167 @@
+.phase-transition-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-deep);
+  overflow: hidden;
+  animation: overlay-fade-out 0.5s ease 3s forwards;
+}
+
+.transition-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.transition-grid {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    linear-gradient(rgba(0, 243, 255, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 243, 255, 0.1) 1px, transparent 1px);
+  background-size: 100px 100px;
+  perspective: 1000px;
+  transform: rotateX(60deg) translateY(-50%) translateZ(-200px);
+  opacity: 0.3;
+}
+
+.impact-container {
+  position: relative;
+  text-align: center;
+  animation: screen-shake 0.4s cubic-bezier(.36,.07,.19,.97) 0.2s both;
+}
+
+.impact-text-3d {
+  font-family: var(--font-mono);
+  font-size: clamp(3rem, 15vw, 8rem);
+  font-weight: 900;
+  color: var(--text-primary);
+  text-transform: uppercase;
+  letter-spacing: 10px;
+  position: relative;
+  line-height: 1;
+  margin: 0;
+  /* Massive Scale Impact Animation */
+  animation: impact-slam 0.3s cubic-bezier(0.17, 0.89, 0.32, 1.27) forwards;
+  text-shadow: 0 0 20px rgba(0, 243, 255, 0.5);
+}
+
+.impact-text-3d::before,
+.impact-text-3d::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+}
+
+.impact-text-3d::before {
+  color: var(--accent-cyan);
+  z-index: -1;
+  animation: chromatic-move-1 0.4s infinite;
+}
+
+.impact-text-3d::after {
+  color: var(--accent-purple);
+  z-index: -2;
+  animation: chromatic-move-2 0.4s infinite;
+}
+
+.impact-subtext {
+  font-size: 0.9rem;
+  color: var(--accent-cyan);
+  letter-spacing: 4px;
+  margin-top: 1rem;
+  opacity: 0;
+  animation: fade-in 0.5s ease 0.5s forwards;
+}
+
+.screen-flash {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: white;
+  opacity: 0;
+  pointer-events: none;
+  z-index: 10;
+  animation: impact-flash 0.3s ease 0.15s;
+}
+
+@keyframes impact-slam {
+  0% {
+    transform: scale(8);
+    opacity: 0;
+    filter: blur(20px);
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+    filter: blur(0);
+  }
+}
+
+@keyframes screen-shake {
+  10%, 90% { transform: translate3d(-2px, 0, 0); }
+  20%, 80% { transform: translate3d(4px, 0, 0); }
+  30%, 50%, 70% { transform: translate3d(-8px, 0, 0); }
+  40%, 60% { transform: translate3d(8px, 0, 0); }
+}
+
+@keyframes impact-flash {
+  0% { opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { opacity: 0; }
+}
+
+@keyframes chromatic-move-1 {
+  0% { transform: translate(0); }
+  25% { transform: translate(-5px, 2px); }
+  50% { transform: translate(2px, -3px); }
+  75% { transform: translate(-3px, -1px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes chromatic-move-2 {
+  0% { transform: translate(0); }
+  25% { transform: translate(5px, -2px); }
+  50% { transform: translate(-2px, 3px); }
+  75% { transform: translate(3px, 1px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes overlay-fade-out {
+  from { opacity: 1; pointer-events: all; }
+  to { opacity: 0; pointer-events: none; }
+}
+
+@media (max-width: 768px) {
+  .impact-text-3d {
+    letter-spacing: 4px;
+  }
+  
+  .transition-grid {
+    background-size: 50px 50px;
+  }
+}

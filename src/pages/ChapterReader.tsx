@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import rehypeRaw from 'rehype-raw';
 import { ChevronLeft, ChevronRight, Menu, Home } from 'lucide-react';
+import PhaseTransition from '../components/PhaseTransition';
 import './ChapterReader.css';
 
 const ChapterReader: React.FC = () => {
@@ -15,7 +16,23 @@ const ChapterReader: React.FC = () => {
   });
   const [sidebarOpen, setSidebarOpen] = useState<boolean>(true);
   const [isBooting, setIsBooting] = useState<boolean>(true);
+  const [showPhaseTransition, setShowPhaseTransition] = useState<boolean>(false);
   const navigate = useNavigate();
+
+  // Determine if this is a phase start
+  const isPhaseStart = (phase: string | undefined, chapter: string | undefined) => {
+    if (phase === 'prologue' && chapter === 'prologue') return "PROLOGUE";
+    if (phase === 'phase-1' && chapter === 'chapter-1') return "PHASE I";
+    return null;
+  };
+
+  const phaseTitle = isPhaseStart(phaseId, chapterId);
+
+  useEffect(() => {
+    if (phaseTitle) {
+      setShowPhaseTransition(true);
+    }
+  }, [phaseId, chapterId, phaseTitle]);
 
   // Helper to extract text from React children
   const getTextFromChildren = (children: any): string => {
@@ -73,6 +90,12 @@ const ChapterReader: React.FC = () => {
 
   return (
     <div className="reader-page">
+      {showPhaseTransition && phaseTitle && (
+        <PhaseTransition 
+          phaseName={phaseTitle} 
+          onComplete={() => setShowPhaseTransition(false)} 
+        />
+      )}
       <nav className="reader-nav ui-text">
         <Link to="/" className="nav-item"><Home size={18} /> <span>ORIGIN</span></Link>
         <div className="nav-center">
