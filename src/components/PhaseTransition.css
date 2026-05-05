@@ -87,7 +87,7 @@
   color: var(--accent-purple);
   text-transform: uppercase;
   letter-spacing: 6px;
-  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
   opacity: 0;
   animation: fade-in 0.5s ease 0.4s forwards;
 }
@@ -96,9 +96,35 @@
   font-size: 0.9rem;
   color: var(--accent-cyan);
   letter-spacing: 4px;
-  margin-top: 1rem;
-  opacity: 0;
-  animation: fade-in 0.5s ease 0.5s forwards;
+  margin-top: 1.5rem;
+  position: relative;
+  height: 1.2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.impact-subtext::before {
+  content: attr(data-denied);
+  position: absolute;
+  color: #ff0055;
+  animation: security-bypass 1.5s steps(1) forwards;
+}
+
+@keyframes security-bypass {
+  0% { content: attr(data-denied); opacity: 1; filter: blur(2px); }
+  10% { opacity: 0; }
+  15% { opacity: 1; }
+  20% { opacity: 0; }
+  25% { opacity: 1; }
+  30% { content: attr(data-denied); color: #ff0055; }
+  35% { content: "BYPASSING..."; color: var(--accent-cyan); }
+  40% { opacity: 0; }
+  45% { opacity: 1; }
+  50% { content: attr(data-granted); color: var(--accent-cyan); }
+  55% { opacity: 0; }
+  60% { opacity: 1; }
+  100% { content: attr(data-granted); opacity: 1; }
 }
 
 .screen-flash {

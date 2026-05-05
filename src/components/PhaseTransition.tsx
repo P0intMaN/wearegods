@@ -28,15 +28,17 @@ const PhaseTransition: React.FC<PhaseTransitionProps> = ({ phaseName, subtitle, 
       </div>
       
       <div className="impact-container">
+        <h1 className="impact-text-3d" data-text={phaseName}>
+          {phaseName}
+        </h1>
         {subtitle && (
           <div className="impact-subtitle ui-text">
             [ {subtitle} ]
           </div>
         )}
-        <h1 className="impact-text-3d" data-text={phaseName}>
-          {phaseName}
-        </h1>
-        <div className="impact-subtext ui-text">DATASET_ACCESS_GRANTED</div>
+        <div className="impact-subtext ui-text" data-denied="ACCESS_DENIED" data-granted="DATASET_ACCESS_GRANTED">
+          DATASET_ACCESS_GRANTED
+        </div>
       </div>
 
       <div className="screen-flash"></div>
