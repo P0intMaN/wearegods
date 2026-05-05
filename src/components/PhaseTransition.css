@@ -82,6 +82,16 @@
   animation: chromatic-move-2 0.4s infinite;
 }
 
+.impact-subtitle {
+  font-size: 1rem;
+  color: var(--accent-purple);
+  text-transform: uppercase;
+  letter-spacing: 6px;
+  margin-bottom: 0.5rem;
+  opacity: 0;
+  animation: fade-in 0.5s ease 0.4s forwards;
+}
+
 .impact-subtext {
   font-size: 0.9rem;
   color: var(--accent-cyan);

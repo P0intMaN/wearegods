@@ -20,19 +20,23 @@ const ChapterReader: React.FC = () => {
   const navigate = useNavigate();
 
   // Determine if this is a phase start
-  const isPhaseStart = (phase: string | undefined, chapter: string | undefined) => {
-    if (phase === 'prologue' && chapter === 'prologue') return "PROLOGUE";
-    if (phase === 'phase-1' && chapter === 'chapter-1') return "PHASE I";
+  const getPhaseInfo = (phase: string | undefined, chapter: string | undefined) => {
+    if (phase === 'prologue' && chapter === 'prologue') {
+      return { title: "PROLOGUE", subtitle: "THE UNIVERSE DOESN'T CARE" };
+    }
+    if (phase === 'phase-1' && chapter === 'chapter-1') {
+      return { title: "PHASE I", subtitle: "THE AUDACITY EQUATION" };
+    }
     return null;
   };
 
-  const phaseTitle = isPhaseStart(phaseId, chapterId);
+  const phaseInfo = getPhaseInfo(phaseId, chapterId);
 
   useEffect(() => {
-    if (phaseTitle) {
+    if (phaseInfo) {
       setShowPhaseTransition(true);
     }
-  }, [phaseId, chapterId, phaseTitle]);
+  }, [phaseId, chapterId, phaseInfo?.title]);
 
   // Helper to extract text from React children
   const getTextFromChildren = (children: any): string => {
@@ -90,9 +94,10 @@ const ChapterReader: React.FC = () => {
 
   return (
     <div className="reader-page">
-      {showPhaseTransition && phaseTitle && (
+      {showPhaseTransition && phaseInfo && (
         <PhaseTransition 
-          phaseName={phaseTitle} 
+          phaseName={phaseInfo.title} 
+          subtitle={phaseInfo.subtitle}
           onComplete={() => setShowPhaseTransition(false)} 
         />
       )}

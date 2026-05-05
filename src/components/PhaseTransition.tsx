@@ -3,10 +3,11 @@ import './PhaseTransition.css';
 
 interface PhaseTransitionProps {
   phaseName: string;
+  subtitle?: string;
   onComplete: () => void;
 }
 
-const PhaseTransition: React.FC<PhaseTransitionProps> = ({ phaseName, onComplete }) => {
+const PhaseTransition: React.FC<PhaseTransitionProps> = ({ phaseName, subtitle, onComplete }) => {
   const [isVisible, setIsVisible] = useState(true);
 
   useEffect(() => {
@@ -27,6 +28,11 @@ const PhaseTransition: React.FC<PhaseTransitionProps> = ({ phaseName, onComplete
       </div>
       
       <div className="impact-container">
+        {subtitle && (
+          <div className="impact-subtitle ui-text">
+            [ {subtitle} ]
+          </div>
+        )}
         <h1 className="impact-text-3d" data-text={phaseName}>
           {phaseName}
         </h1>
