@@ -40,8 +40,8 @@ const ChapterReader: React.FC = () => {
       if (typeof child === 'string' || typeof child === 'number') {
         return text + child;
       }
-      if (React.isValidElement(child) && child.props.children) {
-        return text + getTextFromChildren(child.props.children);
+      if (React.isValidElement(child) && (child.props as any).children) {
+        return text + getTextFromChildren((child.props as any).children);
       }
       return text;
     }, '');
