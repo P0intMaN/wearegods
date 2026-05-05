@@ -112,7 +112,7 @@
 }
 
 @keyframes security-bypass {
-  0% { content: attr(data-denied); opacity: 1; filter: blur(2px); }
+  0% { content: attr(data-denied); opacity: 1; filter: blur(2px); color: #ff0055; }
   10% { opacity: 0; }
   15% { opacity: 1; }
   20% { opacity: 0; }
@@ -124,7 +124,7 @@
   50% { content: attr(data-granted); color: var(--accent-cyan); }
   55% { opacity: 0; }
   60% { opacity: 1; }
-  100% { content: attr(data-granted); opacity: 1; }
+  100% { content: attr(data-granted); opacity: 1; color: var(--accent-cyan); }
 }
 
 .screen-flash {
