@@ -37,7 +37,6 @@ const PhaseTransition: React.FC<PhaseTransitionProps> = ({ phaseName, subtitle, 
           </div>
         )}
         <div className="impact-subtext ui-text" data-denied="ACCESS_DENIED" data-granted="DATASET_ACCESS_GRANTED">
-          DATASET_ACCESS_GRANTED
         </div>
       </div>
 
