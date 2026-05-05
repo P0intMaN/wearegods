@@ -17,6 +17,19 @@ const ChapterReader: React.FC = () => {
   const [isBooting, setIsBooting] = useState<boolean>(true);
   const navigate = useNavigate();
 
+  // Helper to extract text from React children
+  const getTextFromChildren = (children: any): string => {
+    return React.Children.toArray(children).reduce((text: string, child: any) => {
+      if (typeof child === 'string' || typeof child === 'number') {
+        return text + child;
+      }
+      if (React.isValidElement(child) && child.props.children) {
+        return text + getTextFromChildren(child.props.children);
+      }
+      return text;
+    }, '');
+  };
+
   useEffect(() => {
     // End booting animation after a short delay
     const timer = setTimeout(() => setIsBooting(false), 1000);
@@ -114,7 +127,10 @@ const ChapterReader: React.FC = () => {
           <ReactMarkdown
             rehypePlugins={[rehypeRaw]}
             components={{
-              h1: ({node, ...props}) => <h1 className="glitch-header" data-text={props.children} {...props} />,
+              h1: ({node, ...props}) => {
+                const text = getTextFromChildren(props.children);
+                return <h1 className="glitch-header" data-text={text} {...props} />;
+              },
               h2: ({node, ...props}) => <h2 className="tech-header" {...props} />,
               h3: ({node, ...props}) => <h3 className="ui-header" {...props} />,
               blockquote: ({node, ...props}) => <blockquote className="archive-quote" {...props} />,
